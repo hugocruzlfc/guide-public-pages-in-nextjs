@@ -1,15 +1,16 @@
 import Image from "next/image";
 import type { Product, Promotion } from "@/app/products/data";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 export function List({ items }: { items: Product[] }) {
   return (
     <div className="grid grid-cols-2 gap-5 md:grid-cols-3 md:gap-10">
       {items.map((product) => (
-        <div
+        <Card
           key={product.id}
           className="grid gap-2"
         >
-          <div className="flex aspect-square items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800">
+          <CardContent>
             <Image
               src={product.image}
               alt={product.name}
@@ -17,9 +18,11 @@ export function List({ items }: { items: Product[] }) {
               height={192}
               className="object-cover opacity-90 brightness-150 dark:brightness-100"
             />
-          </div>
-          <h2 className="text-gray-700 dark:text-gray-300">{product.name}</h2>
-        </div>
+          </CardContent>
+          <CardFooter>
+            <h2 className="text-gray-700 dark:text-gray-300">{product.name}</h2>
+          </CardFooter>
+        </Card>
       ))}
     </div>
   );

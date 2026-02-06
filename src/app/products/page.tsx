@@ -27,12 +27,12 @@ async function PromotionContent() {
 
 export default async function Page() {
   return (
-    <>
+    <div className="mx-auto max-w-7xl space-y-5 px-5 py-10">
       <Suspense fallback={<PromotionSkeleton />}>
         <PromotionContent />
       </Suspense>
       <Header />
       <ProductList />
-    </>
+    </div>
   );
 }
